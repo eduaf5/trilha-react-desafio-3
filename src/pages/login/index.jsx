@@ -14,6 +14,10 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    const handleClickSignIn = () => {
+        navigate('/feed')
+    }
+
     const { control, handleSubmit, formState: { errors  } } = useForm({
         reValidateMode: 'onChange',
         mode: 'onChange',
@@ -52,7 +56,7 @@ const Login = () => {
                     {errors.email && <span>E-mail é obrigatório</span>}
                     <Input type="password" placeholder="Senha" leftIcon={<MdLock />}  name="senha" control={control} />
                     {errors.senha && <span>Senha é obrigatório</span>}
-                    <Button title="Entrar" variant="secondary" type="submit"/>
+                    <Button title="Entrar" variant="secondary" onClick={handleClickSignIn} type="button" />
                 </form>
                 <Row>
                     <EsqueciText>Esqueci minha senha</EsqueciText>
